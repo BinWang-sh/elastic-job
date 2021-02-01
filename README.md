@@ -47,6 +47,14 @@ services:
       ZOO_MY_ID: 3
       ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
 ```      
+执行docker-compose up，启动
+执行docker ps可以看到如下内容
+```
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                  NAMES
+9cbec7f0012f        zookeeper:3.5.8     "/docker-entrypoint.…"   2 days ago          Up 2 days           2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, 8080/tcp   zookeeper_zoo1_1
+25ed26983a39        zookeeper:3.5.8     "/docker-entrypoint.…"   2 days ago          Up 2 days           2888/tcp, 3888/tcp, 8080/tcp, 0.0.0.0:2183->2181/tcp   zookeeper_zoo3_1
+e5002064ade5        zookeeper:3.5.8     "/docker-entrypoint.…"   2 days ago          Up 2 days           2888/tcp, 3888/tcp, 8080/tcp, 0.0.0.0:2182->2181/tcp   zookeeper_zoo2_1
+```
 
 ### application.yml中定义zookeeper配置
 ```
