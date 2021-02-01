@@ -1,5 +1,6 @@
 package com.example.elasticjob.config;
 
+import com.dangdang.ddframe.job.api.dataflow.DataflowJob;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
@@ -29,6 +30,8 @@ public class DynamicSimpleJob {
 
     @PostConstruct
     public void initElasticJob() {
+
+        Map<String, DataflowJob> flowMap = applicationContext.getBeansOfType(DataflowJob.class);
 
         Map<String, SimpleJob> map = applicationContext.getBeansOfType(SimpleJob.class);
 

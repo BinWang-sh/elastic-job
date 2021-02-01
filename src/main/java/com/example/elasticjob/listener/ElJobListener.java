@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SimpleJobListener implements ElasticJobListener {
-    private static final Logger LOG = LoggerFactory.getLogger(SimpleJobListener.class);
+public class ElJobListener implements ElasticJobListener {
+    private static final Logger LOG = LoggerFactory.getLogger(ElJobListener.class);
 
     private long beginTime = 0;
 

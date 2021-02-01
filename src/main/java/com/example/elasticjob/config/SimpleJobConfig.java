@@ -3,17 +3,14 @@ package com.example.elasticjob.config;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
-import com.dangdang.ddframe.job.event.JobEventConfiguration;
 import com.dangdang.ddframe.job.lite.api.JobScheduler;
 import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
 import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 import com.example.elasticjob.job.ShowInfoSimpleJob;
-import com.example.elasticjob.listener.SimpleJobListener;
+import com.example.elasticjob.listener.ElJobListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 //@Configuration
 public class SimpleJobConfig {
@@ -67,7 +64,7 @@ public class SimpleJobConfig {
         return new SpringJobScheduler(simpleJob,
                 registryCenter,
                 liteJobConfiguration,
-                new SimpleJobListener());
+                new ElJobListener());
 
     }
 }
