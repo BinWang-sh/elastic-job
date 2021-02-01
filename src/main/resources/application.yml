@@ -1,0 +1,18 @@
+zookeeper:
+  address: 192.168.6.132:2181
+  namespace: elastic-job
+  connectionTimeout: 10000
+  sessionTimeout: 10000
+  maxRetries: 3
+
+# simplejob配置
+simpleJob:
+  cron: 0/5 * * * * ?
+  shardingTotalCount: 5
+  shardingItemParameters: 0=java,1=php,2=erlang,3=angular,4=vue
+  jobParameter: source1=public,source2=private
+  failover: true
+  monitorExecution: true
+  monitorPort: 8889
+  maxTimeDiffSeconds: -1
+  jobShardingStrategyClass: com.dangdang.ddframe.job.lite.api.strategy.impl.AverageAllocationJobShardingStrategy
