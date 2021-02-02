@@ -370,6 +370,33 @@ public class ElasticJobService {
 }
 ```
 
+## Job配置属性参照如下
+* JobCoreConfiguration配置
+  * jobName 名称
+  * cron 时间表达式
+  * shardingTotalCount 任务分片的总数
+  * shardingItemParameters 每个分片对应的参数
+  * jobParameter job从外部传入的参数
+  * failover 是否开启失效转移
+  * misfire 是否开启错过执行
+  * description 任务描述
+  * jobProperties任务的一些属性配置
+
+* LiteJobConfiguration
+  * monitorExecution 是否开启监控
+  * maxTimeDiffSeconds 本机和注册中心最大时间误差数
+  * moinitorPort 监控u的那口
+  * jobShardingStrategyClass 分片策略类
+  * disabled 设置作业是否启动时禁止
+  * overwrite 是否重写配置
+
+* DataflowJobConfiguration
+  * streamingProcess 是否开启流执行
+    * streamingProcess设为true只有在 fetchData 方法的返回值为 null 或集合容量为空时，才停止抓取
+    * streamingProcess false 任务只会在每次作业执行过程中执行一次 fetchData 和 processData 方法
+            
+* scriptCommandLine
+  * ScriptJobConfiguration 脚本命令行
 
 ## elastic-job
 去官网下载ElasticJob-Lite-UI二进制包，解压。
